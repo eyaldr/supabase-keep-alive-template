@@ -24,13 +24,13 @@
 - חשבון GitHub (חינמי)
 - פרויקט Supabase אחד לפחות
 - חשבון Gmail עם אימות דו-שלבי *(אופציונלי — לדוחות מייל)*
-- VS Code — **מומלץ** (ראה הוראות בהמשך)
+- VS Code — **מומלץ** (ראו הוראות בהמשך)
 
 ---
 
 ## הגדרה מהירה (אוטומטית)
 
-לאחר שעשית Fork ופתחת ב-VS Code, הרץ בטרמינל:
+לאחר Fork ופתיחת הרפו ב-VS Code, הריצו בטרמינל:
 
 ```bash
 bash setup.sh
@@ -42,7 +42,7 @@ bash setup.sh
 
 ### הגדרה עם Claude Code
 
-אם אתה משתמש ב-[Claude Code](https://claude.ai/code), צור קובץ `~/.claude/commands/supabase-keep-alive-setup.md` עם התוכן הבא:
+אם משתמשים ב-[Claude Code](https://claude.ai/code), צרו קובץ `~/.claude/commands/supabase-keep-alive-setup.md` עם התוכן הבא:
 
 ```
 Guide the user through setting up the Supabase Keep-Alive template step by step.
@@ -52,7 +52,7 @@ The template repository is at: https://github.com/eyaldr/supabase-keep-alive-tem
 ## Setup flow
 
 1. **Check if the user already has a fork/clone**
-   - Ask: "האם כבר עשית Fork לרפו וקלנת אותו מקומית?"
+   - Ask: "האם כבר עשיתם Fork לרפו וקלנתם אותו מקומית?"
    - If not: instruct them to go to https://github.com/eyaldr/supabase-keep-alive-template, click Fork, then clone it locally.
 
 2. **Navigate to the cloned directory**
@@ -78,7 +78,7 @@ The template repository is at: https://github.com/eyaldr/supabase-keep-alive-tem
 Throughout the process: answer questions, help debug errors, and explain what each step does.
 ```
 
-ואז הקלד `/supabase-keep-alive-setup` — Claude ינחה אותך שלב אחרי שלב.
+ואז הקלידו `/supabase-keep-alive-setup` — Claude ינחה אתכם שלב אחרי שלב.
 
 ---
 
@@ -86,16 +86,16 @@ Throughout the process: answer questions, help debug errors, and explain what ea
 
 ### שלב 1 — Fork את הרפו
 
-לחץ **Fork** בפינה הימנית העליונה של דף GitHub.
+לחצו **Fork** בפינה הימנית העליונה של דף GitHub.
 
-בחר שם (למשל `supabase-keep-alive`) → **Create fork**.
+בחרו שם (למשל `supabase-keep-alive`) → **Create fork**.
 
 ---
 
-### שלב 2 — פתח ב-VS Code
+### שלב 2 — פתחו ב-VS Code
 
 **אפשרות א׳ — מהדפדפן:**
-בדף ה-Fork שלך, לחץ על מקש `.` (נקודה) — VS Code נפתח ישירות בדפדפן.
+בדף ה-Fork שלכם, לחצו על מקש `.` (נקודה) — VS Code נפתח ישירות בדפדפן.
 
 **אפשרות ב׳ — מקומי:**
 ```bash
@@ -108,7 +108,7 @@ code .
 בפתיחה ב-VS Code תופיע הודעה:
 > "This repository recommends extensions. Do you want to install them?"
 
-לחץ **Install** — יותקנו:
+לחצו **Install** — יותקנו:
 - **GitHub Actions** — syntax highlighting, autocomplete, ואפשרות לצפות בריצות מ-VS Code
 - **YAML** — אימות syntax בזמן אמת
 
@@ -116,9 +116,9 @@ code .
 
 ---
 
-### שלב 3 — הכן את ה-DB בכל פרויקט Supabase (חד-פעמי)
+### שלב 3 — הכינו את ה-DB בכל פרויקט Supabase (חד-פעמי)
 
-פתח **Supabase Dashboard → SQL Editor** והרץ את ה-SQL הזה בכל אחד מהפרויקטים שלך:
+פתחו **Supabase Dashboard → SQL Editor** והריצו את ה-SQL הזה בכל אחד מהפרויקטים:
 
 ```sql
 -- יצירת הטבלה
@@ -134,18 +134,18 @@ alter table keep_alive enable row level security;
 create policy "allow_anon_select" on keep_alive for select to anon using (true);
 ```
 
-**הודעת Supabase בהרצה:** תופיע ההודעה _"Potential issue detected — Row Level Security"_ — לחץ **"Run and enable RLS"**.
+**הודעת Supabase בהרצה:** תופיע ההודעה _"Potential issue detected — Row Level Security"_ — לחצו **"Run and enable RLS"**.
 
 **בטיחות:** RLS מופעל עם מדיניות SELECT בלבד — גורמים חיצוניים לא יכולים לכתוב או למחוק. אין מגע בטבלאות קיימות ואין השפעה על משתמשים אחרים.
 
 ---
 
-### שלב 4 — התאם את הוורקפלו לפרויקטים שלך (שנה placeholders)
+### שלב 4 — התאימו את הוורקפלו לפרויקטים שלכם (שנו placeholders)
 
-פתח `.github/workflows/supabase-keep-alive.yml`.
+פתחו `.github/workflows/supabase-keep-alive.yml`.
 
-**א׳ — שנה שמות פרויקטים:**
-בכל step, עדכן את שם ה-step ואת שמות ה-secrets:
+**א׳ — שנו שמות פרויקטים:**
+בכל step, עדכנו את שם ה-step ואת שמות ה-secrets:
 
 ```yaml
 # לפני:
@@ -165,21 +165,21 @@ create policy "allow_anon_select" on keep_alive for select to anon using (true);
       -H "Authorization: Bearer ${{ secrets.MY_APP_K }}")
 ```
 
-**ב׳ — כמה פרויקטים יש לך?**
+**ב׳ — כמה פרויקטים יש לכם?**
 
 | מצב | מה לעשות |
 |-----|---------|
-| פחות מ-4 | מחק את ה-steps של Project-3 / Project-4 (כולל השורות שלהם ב-summary, email, ו-fail check) |
-| יותר מ-4 | העתק step קיים, הוסף `id: p5` וכו׳, ועדכן את שלבי ה-summary |
+| פחות מ-4 | מחקו את ה-steps של Project-3 / Project-4 (כולל השורות שלהם ב-summary, email, ו-fail check) |
+| יותר מ-4 | העתיקו step קיים, הוסיפו `id: p5` וכו׳, ועדכנו את שלבי ה-summary |
 
 ---
 
-### שלב 5 — הגדר GitHub Secrets
+### שלב 5 — הגדירו GitHub Secrets
 
-עבור לדף ה-Fork שלך ב-GitHub:
+עברו לדף ה-Fork שלכם ב-GitHub:
 **Settings → Secrets and variables → Actions → New repository secret**
 
-> **חשוב:** שמות ה-secrets חייבים להתאים בדיוק לשמות שבחרת בשלב 4. אם שינית `PROJECT_1` ל-`MY_APP` — הכנס `MY_APP_URL` ו-`MY_APP_K` כאן.
+> **חשוב:** שמות ה-secrets חייבים להתאים בדיוק לשמות שבחרתם בשלב 4. אם שיניתם `PROJECT_1` ל-`MY_APP` — הכניסו `MY_APP_URL` ו-`MY_APP_K` כאן.
 
 **Secrets לכל פרויקט Supabase:**
 
@@ -189,26 +189,26 @@ create policy "allow_anon_select" on keep_alive for select to anon using (true);
 | `PROJECT_1_K` | ✅ | Supabase Dashboard → Project Settings → API → **Project API keys → anon / public** |
 | `PROJECT_2_URL` | ✅ | כנ"ל לפרויקט 2 |
 | `PROJECT_2_K` | ✅ | כנ"ל לפרויקט 2 |
-| `PROJECT_3_URL` | רשות | רק אם שמרת את שלב Project-3 בוורקפלו |
+| `PROJECT_3_URL` | רשות | רק אם שמרתם את שלב Project-3 בוורקפלו |
 | `PROJECT_3_K` | רשות | כנ"ל |
-| `PROJECT_4_URL` | רשות | רק אם שמרת את שלב Project-4 בוורקפלו |
+| `PROJECT_4_URL` | רשות | רק אם שמרתם את שלב Project-4 בוורקפלו |
 | `PROJECT_4_K` | רשות | כנ"ל |
 
-**Secrets לדוחות מייל** *(רק אם שמרת את שלב `Send email report`)*:
+**Secrets לדוחות מייל** *(רק אם שמרתם את שלב `Send email report`)*:
 
 | Secret | ערך |
 |--------|-----|
 | `GMAIL_USERNAME` | כתובת Gmail שתשלח ותקבל את הדוחות |
-| `GMAIL_APP_PASSWORD` | סיסמת App Password (ראה הוראות למטה) |
+| `GMAIL_APP_PASSWORD` | סיסמת App Password (ראו הוראות למטה) |
 
 **יצירת Gmail App Password:**
 1. Google Account → **Security**
-2. הפעל **2-Step Verification** (אם לא פעיל)
-3. חזור ל-Security → **App passwords**
-4. בחר `Other` → הזן שם כלשהו → **Generate**
-5. קבל סיסמת 16 תווים — העתק ישירות ל-GitHub Secret
+2. הפעילו **2-Step Verification** (אם לא פעיל)
+3. חזרו ל-Security → **App passwords**
+4. בחרו `Other` → הזינו שם כלשהו → **Generate**
+5. קבלו סיסמת 16 תווים — העתיקו ישירות ל-GitHub Secret
 
-**ראה גם:** `secrets.template.txt` — רשימה מלאה של כל ה-secrets למילוי.
+**ראו גם:** `secrets.template.txt` — רשימה מלאה של כל ה-secrets למילוי.
 
 ---
 
@@ -217,16 +217,16 @@ create policy "allow_anon_select" on keep_alive for select to anon using (true);
 ב-GitHub → **Actions → Supabase Keep-Alive → Run workflow → Run workflow**
 
 אחרי ~30 שניות:
-- ✅ הריצה הצליחה — בדוק שהמייל הגיע
-- ❌ הריצה נכשלה — לחץ על הריצה ובדוק איזה step נכשל
+- ✅ הריצה הצליחה — בדקו שהמייל הגיע
+- ❌ הריצה נכשלה — לחצו על הריצה ובדקו איזה step נכשל
 
 ---
 
 ### שלב 7 — אימות שה-query הגיע ל-Supabase
 
-Supabase Dashboard → בחר פרויקט → **Logs → API**
+Supabase Dashboard → בחרו פרויקט → **Logs → API**
 
-חפש בקשה ל-`/rest/v1/keep_alive` בזמן הריצה.
+חפשו בקשה ל-`/rest/v1/keep_alive` בזמן הריצה.
 
 ---
 
@@ -250,7 +250,7 @@ Supabase Dashboard → בחר פרויקט → **Logs → API**
 
 ## השבתת דוחות מייל
 
-מחק את ה-step בשם `Send email report` מהוורקפלו (כולל שורות `uses:`, `with:` וכל השדות שתחתיו).
+מחקו את ה-step בשם `Send email report` מהוורקפלו (כולל שורות `uses:`, `with:` וכל השדות שתחתיו).
 
 ---
 
@@ -263,6 +263,7 @@ Supabase Dashboard → בחר פרויקט → **Logs → API**
 .vscode/
   extensions.json             # המלצות extensions ל-VS Code
   settings.json               # schema אוטומטי ל-YAML
+setup.sh                      # סקריפט הגדרה אוטומטי
 secrets.template.txt          # רשימת secrets למילוי
 README.md                     # המסמך הזה
 ```
@@ -272,10 +273,10 @@ README.md                     # המסמך הזה
 ## שאלות נפוצות
 
 **הוורקפלו לא מוצג ב-Actions**
-ב-GitHub → Actions → לחץ "I understand my workflows, go ahead and enable them"
+ב-GitHub → Actions → לחצו "I understand my workflows, go ahead and enable them"
 
 **המייל לא מגיע**
-בדוק שה-App Password הוכנס ללא רווחים, ושה-GMAIL_USERNAME נכון.
+בדקו שה-App Password הוכנס ללא רווחים, ושה-GMAIL_USERNAME נכון.
 
 **Supabase עדיין מושהה**
-בדוק שהפינג הגיע ב-Logs. אם הוא מגיע ועדיין קורה — פנה ל-Supabase Support.
+בדקו שהפינג הגיע ב-Logs. אם הוא מגיע ועדיין קורה — פנו ל-Supabase Support.
