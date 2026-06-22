@@ -40,6 +40,46 @@ bash setup.sh
 
 **דרישה:** [gh CLI](https://cli.github.com) — הסקריפט יציע להתקין אם לא קיים.
 
+### הגדרה עם Claude Code
+
+אם אתה משתמש ב-[Claude Code](https://claude.ai/code), צור קובץ `~/.claude/commands/supabase-keep-alive-setup.md` עם התוכן הבא:
+
+```
+Guide the user through setting up the Supabase Keep-Alive template step by step.
+
+The template repository is at: https://github.com/eyaldr/supabase-keep-alive-template
+
+## Setup flow
+
+1. **Check if the user already has a fork/clone**
+   - Ask: "האם כבר עשית Fork לרפו וקלנת אותו מקומית?"
+   - If not: instruct them to go to https://github.com/eyaldr/supabase-keep-alive-template, click Fork, then clone it locally.
+
+2. **Navigate to the cloned directory**
+   - Ask for the path or detect it
+   - `cd` into it and verify `setup.sh` exists
+
+3. **Run setup.sh**
+   - Run `bash setup.sh` in the cloned directory
+   - Guide the user through each prompt:
+     - Number of projects (1–4)
+     - Per project: name, Supabase URL, anon key
+     - Email reports (optional)
+   - If gh CLI is not installed, help with installation
+
+4. **SQL setup in Supabase**
+   - After setup.sh completes, remind the user to run the SQL in each Supabase project's SQL Editor
+   - The SQL is printed by setup.sh — just confirm they ran it
+
+5. **Verify**
+   - Instruct: GitHub → Actions → Supabase Keep-Alive → Run workflow → Run workflow
+   - Wait ~30 seconds and confirm the run succeeded
+
+Throughout the process: answer questions, help debug errors, and explain what each step does.
+```
+
+ואז הקלד `/supabase-keep-alive-setup` — Claude ינחה אותך שלב אחרי שלב.
+
 ---
 
 ## הגדרה ידנית שלב אחרי שלב
