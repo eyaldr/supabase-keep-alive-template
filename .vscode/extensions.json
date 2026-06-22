@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    // תמיכה מלאה ב-GitHub Actions: syntax, autocomplete, הרצה ישירה מ-VS Code
+    "github.vscode-github-actions",
+    // YAML language support + schema validation
+    "redhat.vscode-yaml"
+  ]
+}

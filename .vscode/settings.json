@@ -1,0 +1,10 @@
+{
+  // schema אוטומטי לקבצי GitHub Actions — מאמת syntax ומציע autocomplete
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.yml"
+  },
+  // מסמן שגיאות ב-YAML בזמן אמת
+  "yaml.validate": true,
+  "yaml.hover": true,
+  "yaml.completion": true
+}
