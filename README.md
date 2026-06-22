@@ -125,19 +125,22 @@ create policy "allow_anon_select" on keep_alive for select to anon using (true);
 עבור לדף ה-Fork שלך ב-GitHub:
 **Settings → Secrets and variables → Actions → New repository secret**
 
+> **חשוב:** שמות ה-secrets חייבים להתאים בדיוק לשמות שבחרת בשלב 4. אם שינית `PROJECT_1` ל-`MY_APP` — הכנס `MY_APP_URL` ו-`MY_APP_K` כאן.
+
 **Secrets לכל פרויקט Supabase:**
 
-| Secret | איפה מוצאים |
-|--------|------------|
-| `PROJECT_1_URL` | Supabase Dashboard → פרויקט → Project Settings → API → **Project URL** |
-| `PROJECT_1_K` | Supabase Dashboard → פרויקט → Project Settings → API → **Publishable (anon) key** |
-| `PROJECT_2_URL` | כנ"ל |
-| `PROJECT_2_K` | כנ"ל |
-| *(חזור על כל פרויקט)* | |
+| Secret | הכרחי? | איפה מוצאים |
+|--------|:------:|------------|
+| `PROJECT_1_URL` | ✅ | Supabase Dashboard → Project Settings → API → **Project URL** |
+| `PROJECT_1_K` | ✅ | Supabase Dashboard → Project Settings → API → **Project API keys → anon / public** |
+| `PROJECT_2_URL` | ✅ | כנ"ל לפרויקט 2 |
+| `PROJECT_2_K` | ✅ | כנ"ל לפרויקט 2 |
+| `PROJECT_3_URL` | רשות | רק אם שמרת את שלב Project-3 בוורקפלו |
+| `PROJECT_3_K` | רשות | כנ"ל |
+| `PROJECT_4_URL` | רשות | רק אם שמרת את שלב Project-4 בוורקפלו |
+| `PROJECT_4_K` | רשות | כנ"ל |
 
-> שים לב: שמות ה-secrets כאן חייבים להתאים בדיוק לשמות שהגדרת בוורקפלו בשלב 4.
-
-**Secrets לדוחות מייל:**
+**Secrets לדוחות מייל** *(רק אם שמרת את שלב `Send email report`)*:
 
 | Secret | ערך |
 |--------|-----|
