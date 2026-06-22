@@ -1,4 +1,4 @@
-# Supabase Keep-Alive
+# Supabase Keep-Alive-Template
 
 אוטומציה שמונעת השהיה של פרויקטי Supabase בחינם.
 
