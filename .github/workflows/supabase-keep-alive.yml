@@ -7,9 +7,10 @@ name: Supabase Keep-Alive
 # ─────────────────────────────────────────────────────
 
 on:
-  schedule:
-    - cron: "0 8 * * 1,3" # כל יום שני + רביעי ב-08:00 UTC (11:00 ישראל)
-  workflow_dispatch:       # אפשר גם הרצה ידנית מ-GitHub UI
+  # הסירו את ה-# משתי השורות הבאות לאחר הגדרת ה-secrets (ראו שלב 5):
+  # schedule:
+  #   - cron: "0 8 * * 1,3" # ב' + ד' ב-08:00 UTC (11:00 ישראל)
+  workflow_dispatch: # הרצה ידנית מ-GitHub UI לבדיקה
 
 jobs:
   ping:
